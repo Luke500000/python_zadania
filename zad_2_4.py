@@ -1,10 +1,9 @@
+### Zadanie 2.4 | Zgadnij liczbę z zakresu
+
 import random
-
 liczba=random.randint(0,999)
-
 krok=0
 #print(f"Wylosowana liczba: {liczba}")
-
 while True:
     krok+=1
     wart = int(input(f"Podaj liczbę: "))

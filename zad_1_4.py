@@ -1,3 +1,5 @@
+### Zadanie 1.4 | Opłata hotelowa
+
 wiek = int(input(f"Podaj wiek: "))
 liczba_dni = int(input(f"Podaj liczbę dni w hotelu: "))
 

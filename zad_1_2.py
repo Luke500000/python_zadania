@@ -1,8 +1,10 @@
+# Zadanie 1.2 | Buty do szewca
+
 import math
 
 print(f"Nazewnictwo: poniedzialek, wtorek, sroda, czwartek, piatek, sobota, niedziela")
 print(f"Skróty: pon, wt, sr, czw, ptk, sob, niedz")
-dzien_tyg = input(f"Podaj dzień tygodnia, w którym oddano buty do szewca (stosowane nazewnictwo lub skroty powyżej): ")
+dzien_tyg = input(f"Podaj dzień tygodnia, w którym oddano buty do szewca (zastosuj nazewnictwo lub skroty powyżej): ")
 
 if dzien_tyg == "pon" or dzien_tyg == "poniedzialek":
     dzien_liczba = 1

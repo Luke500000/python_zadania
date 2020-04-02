@@ -1,3 +1,5 @@
+### Zadanie 1.6 | Bilety
+
 wiek = int(input(f"Podaj wiek: "))
 liczba_biletow = int(input(f"Podaj liczbę biletów: "))
 

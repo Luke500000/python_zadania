@@ -1,5 +1,6 @@
-import math
+# Zadanie 1.5 | Pole trójkąta
 
+import math
 a = float(input(f"Podaj pierwszy bok trójkąta: "))
 b = float(input(f"Podaj drugi bok trójkąta: "))
 c = float(input(f"Podaj trzeci bok trójkąta: "))

@@ -1,4 +1,4 @@
-# Do przeróbki
+### Zadanie 2.2 | Choinka
 
 liczba = int(input(f"Podaj liczbę choinek: "))
 for x in range(0, liczba):

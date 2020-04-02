@@ -1,5 +1,6 @@
-licznik = 0
+### Zadanie 1.9 FizzBuzz
 
+licznik = 0
 while licznik < 100:
     licznik+=1
     print(licznik, end=" ")

@@ -1,3 +1,5 @@
+### Zadanie 2.3
+
 ile = int(input(f"Ile liczb? "))
 suma = 0
 for x in range(0, ile):

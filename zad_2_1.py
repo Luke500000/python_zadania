@@ -1,5 +1,6 @@
-import random
+### Zadanie 2.1 | Zagadka matematyczna
 
+import random
 liczba1 =random.randint(0,99)
 liczba2 =random.randint(0,99)
 print(f"Liczba1: {liczba1}")

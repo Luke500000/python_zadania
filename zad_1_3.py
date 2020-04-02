@@ -1,5 +1,7 @@
+# Zadanie 1.3 | Współczynnik BMI
+
 wzrost = float(input(f"Podaj wzrost w cm: "))
-wzrost/=100
+wzrost /= 100
 masa = float(input(f"Podaj masę w kg: "))
 bmi = masa/(wzrost ** 2)
 print(f"Twoje BMI wynosi: {bmi:.2f}")
