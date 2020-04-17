@@ -28,24 +28,22 @@ else:
 czas_naprawy = int(input(f"Ile dni będzie trwała naprawa? "))
 dzien_odbioru = dzien_liczba + czas_naprawy
 
-while dzien_odbioru > 7:
-    dzielnik = math.floor(dzien_odbioru / 7)
-    #print(f"Dzielnik: {dzielnik}")
-    dzien_odbioru-=dzielnik * 7
-    #print(f"Dzien odbioru: {dzien_odbioru}")
+liczba_tygodni = math.floor(dzien_odbioru / 7)
+dzien_odbioru %= 7
+
 if dzien_odbioru == 1:
-    print(f"Dzień odbioru: Poniedziałek")
+    print(f"Dzień odbioru: Poniedziałek za {liczba_tygodni} tydzień.")
 elif dzien_odbioru == 2:
-    print(f"Dzień odbioru: Wtorek")
+    print(f"Dzień odbioru: Wtorek za {liczba_tygodni} tydzień.")
 elif dzien_odbioru == 3:
-    print(f"Dzień odbioru: Środa")
+    print(f"Dzień odbioru: Środa za {liczba_tygodni} tydzień.")
 elif dzien_odbioru == 4:
-    print(f"Dzień odbioru: Czwartek")
+    print(f"Dzień odbioru: Czwartek za {liczba_tygodni} tydzień.")
 elif dzien_odbioru == 5:
-    print(f"Dzień odbioru: Piątek")
+    print(f"Dzień odbioru: Piątek za {liczba_tygodni} tydzień.")
 elif dzien_odbioru == 6:
-    print(f"Dzień odbioru: Sobota")
+    print(f"Dzień odbioru: Sobotaza {liczba_tygodni} tydzień.")
 elif dzien_odbioru == 7:
-    print(f"Dzień odbioru: Niedziela")
+    print(f"Dzień odbioru: Niedzielaza {liczba_tygodni} tydzień.")
 else:
     print(f"Wystąpił błąd")
