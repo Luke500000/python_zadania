@@ -5,7 +5,12 @@
 Nie przyjmuj się lutym - zwracaj zawsze jedną wartość.
 ​**Wersja B (trudniejsza)**
 Jeżeli użytkownik poda luty - zapytaj go o rok. Na tej podstawie policz czy w tym roku luty był przestępny czy nie."""
-def ile_dni(miesiac:int, rok=2001) ->int:
+def ile_dni(miesiac:int, rok:int=2001)->int:
+    """
+    :param miesiac: Miesiąc w formie 1-12
+    :param rok: Rok
+    :return: Liczba dni w danym miesiącu danego roku
+    """
     dni = (31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31)
     dni_przestepne = (31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31)
     if ((rok%4==0 and rok%100!=0) or rok%400==0):
@@ -14,11 +19,17 @@ def ile_dni(miesiac:int, rok=2001) ->int:
         wynik = dni[miesiac-1]
     return wynik
 
-print("Liczba dni w miesiacu")
-print("Objaśnienie: styczeń = 1, luty = 2, marzec = 3, ..., grudzień = 12")
-miesiac=int(input("Podaj miesiac: "))
-if miesiac == 2:
-    rok=int(input("Podaj rok: "))
-    print(f"Liczba dni: {ile_dni(miesiac,rok)}")
-else:
-    print(f"Liczba dni: {ile_dni(miesiac)}")
+def test_normalny():
+    assert ile_dni(2,2001)==28
+
+def test_normalny2():
+    assert ile_dni(12,2001)==31
+
+def test_przestepny():
+    assert ile_dni(2,2000)==29
+
+def test_przestepny2():
+    assert ile_dni(12,2000)==31
+
+
+

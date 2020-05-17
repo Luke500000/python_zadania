@@ -13,8 +13,13 @@ wynik = suma(lista_liczb)
 - `wypisz_podzielne(liczby, x)` – wypisuje (`print`) wszystkie te liczby z listy `liczby`, które są podzielne przez `x`
 - `pierwsza_podzielna(liczby, x)` – zwraca (`return`) pierwszą znalezioną w `liczby` liczbę podzielną przez `x`; zwraca `None`, jeśli takiej liczby tam nie ma
 - `znajdz_wspolny(liczby1, liczby2)` – zwraca element (liczbę), który występuje zarówno w liście `liczby1`, jak i `liczby2`; zwraca `None`, jeśli takiego elementu nie ma'''
+import pytest
 
-def suma(lista_liczb):
+def suma(lista_liczb:list)->float:
+    """
+    :param lista_liczb:
+    :return: suma liczb z listy
+    """
     suma = None
     for liczba in lista_liczb:
         if suma is None:
@@ -23,7 +28,13 @@ def suma(lista_liczb):
             suma += liczba
     return suma
 
-def srednia(lista_liczb):
+def srednia(lista_liczb:list)->float:
+    """
+    :param lista_liczb: lista
+    :return: srednia z liczb z listy
+    """
+    if len(lista_liczb) <= 0:
+        raise ValueError("Pusta lista")
     suma = None
     for liczba in lista_liczb:
         if suma is None:
@@ -32,7 +43,13 @@ def srednia(lista_liczb):
             suma += liczba
     return suma/len(lista_liczb)
 
-def max(lista_liczb):
+def max(lista_liczb:list)->float:
+    """
+    :param lista_liczb:
+    :return: max. liczba z liczb z listy
+    """
+    if len(lista_liczb) <= 0:
+        raise ValueError("Pusta lista")
     maks = None
     for liczba in lista_liczb:
         if maks is None:
@@ -42,7 +59,11 @@ def max(lista_liczb):
                 maks = liczba
     return maks
 
-def roznica_min_max(lista_liczb):
+def roznica_min_max(lista_liczb:list)->float:
+    """
+    :param lista_liczb:
+    :return: Różnica pomiędzy min, a max liczbą z liczb
+    """
     maks = None
     minn = None
     if len(lista_liczb)==0:
@@ -59,18 +80,33 @@ def roznica_min_max(lista_liczb):
                     minn = liczba
         return maks - minn
 
-def wypisz_wieksze(lista_liczb, x):
+def wypisz_wieksze(lista_liczb:list, x:float):
+    """
+    :param lista_liczb:
+    :param x: liczba minimalna
+    :return: Printuje liczby większe od x
+    """
     for liczba in lista_liczb:
         if liczba > x:
            print(liczba,end=" ")
 
-def pierwsza_wieksza(lista_liczb, x):
+def pierwsza_wieksza(lista_liczb:list, x:float):
+    """
+    :param lista_liczb:
+    :param x: liczba minimalna
+    :return: Printuje pierwszą liczbę większą od x
+    """
     for liczba in lista_liczb:
         if liczba > x:
             return liczba
     return None
 
-def suma_wiekszych(lista_liczb, x):
+def suma_wiekszych(lista_liczb:list, x:float)->float:
+    """
+    :param lista_liczb:
+    :param x: liczba minimalna
+    :return: Suma liczb większych od x
+    """
     suma = None
     for liczba in lista_liczb:
         if liczba > x:
@@ -80,7 +116,12 @@ def suma_wiekszych(lista_liczb, x):
                 suma+=liczba
     return suma
 
-def ile_wiekszych(lista_liczb, x):
+def ile_wiekszych(lista_liczb:list, x:float)->float:
+    """
+    :param lista_liczb:
+    :param x:
+    :return: Libcza liczb wiekszych od x
+    """
     ile = None
     for liczba in lista_liczb:
         if liczba > x:
@@ -90,47 +131,83 @@ def ile_wiekszych(lista_liczb, x):
                 ile+=1
     return ile
 
-def wypisz_podzielne(lista_liczb, x):
+def wypisz_podzielne(lista_liczb:list, x:float):
+    """
+    :param lista_liczb:
+    :param x:
+    :return:Printuje liczby podzielne przez x w liście
+    """
     for liczba in lista_liczb:
         if liczba%x == 0:
             print(liczba,end=" ")
 
 
-def pierwsza_podzielne(lista_liczb, x):
+def pierwsza_podzielne(lista_liczb:list, x:float)->float:
+    """
+    :param lista_liczb:
+    :param x:
+    :return: Pierwsza podzielna liczba przez x w liście
+    """
     for liczba in lista_liczb:
         if liczba%x == 0:
             return liczba
     return None
 
-def znajdz_wspolny(lista1, lista2):
+def znajdz_wspolny(lista1:list, lista2:list)->float:
+    """
+    :param lista1:
+    :param lista2:
+    :return: Liczba, która występuje w lista1 oraz lista2
+    """
     for liczba1 in lista1:
         for liczba2 in lista2:
             if liczba1==liczba2:
                 return liczba1
     return None
 
-print("Lista nr 1")
 liczby = [10, 20, 30, 40]
-{print(wartosc,end=" ") for wartosc in liczby}
-print()
-print(f"Suma liczb: {suma(liczby)}.")
-print(f"Srednia liczb: {srednia(liczby)}.")
-print(f"Max liczb: {max(liczby)}.")
-print(f"Roznica min-max liczb: {roznica_min_max(liczby)}.")
-wart=float(input("Podaj liczbe: "))
-print(f"Wypisz wiekszą od: {wart}:")
-wypisz_wieksze(liczby,wart)
-print()
-print(f"Wypisz pierwsza wiekszą od:{wart} : {pierwsza_wieksza(liczby,wart)}.")
-print(f"Suma wiekszych od:{wart}: {suma_wiekszych(liczby,wart)}.")
-print(f"Ile wiekszych od:{wart}: {ile_wiekszych(liczby,wart)}.")
-dzielnik=float(input("Podaj dzielnik: "))
-print(f"Wypisz podzielne przez {dzielnik}:")
-wypisz_podzielne(liczby,dzielnik)
-print()
-print(f"Pierwsza podzielna przez {dzielnik}: {pierwsza_podzielne(liczby,dzielnik)}.")
-print("Lista nr 2")
 liczby2 = [17, 13, 45, 19]
-{print(wartosc,end=" ") for wartosc in liczby2}
-print()
-print(f"Znajdź wspolne liczby w liście nr 1 i 2: {znajdz_wspolny(liczby, liczby2)}.")
+
+def test_suma():
+    assert suma(liczby) == 100
+
+def test_srednia():
+    assert srednia(liczby) == 25
+
+def test_srednia2():
+    with pytest.raises(ValueError):
+        srednia([])
+
+def test_max():
+    assert max(liczby) == 40
+
+def test_max2():
+    with pytest.raises(ValueError):
+        max([])
+
+def test_roznica():
+    assert roznica_min_max(liczby) == 30
+
+def test_wypisz_wieksze():
+    assert wypisz_wieksze(liczby, 20) == print("30 40 ")
+
+def test_pierwsza_wieksza():
+    assert pierwsza_wieksza(liczby, 20) == 30
+
+def test_suma_wieksza():
+    assert suma_wiekszych(liczby, 20) == 70
+
+def test_ile_wieksza():
+    assert ile_wiekszych(liczby, 20) == 2
+
+def test_wypisz_podzielne():
+    assert wypisz_podzielne(liczby, 20) == print("20 40 ")
+
+def test_pierwsza_podzielna():
+    assert pierwsza_podzielne(liczby, 20) == 20
+
+def test_pierwsza_podzielna2():
+    assert pierwsza_podzielne(liczby, 100) == None
+
+def test_znajdz_wspolne():
+    assert znajdz_wspolny(liczby, liczby2) == None

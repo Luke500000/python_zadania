@@ -17,70 +17,98 @@ podpowiedź: wartość PI jest dostępna jako `Math.PI`
 import math
 
 def stopy_na_metry(stopy: float) -> float:
+    """
+    :param stopy:
+    :return: stopy na metry
+    """
     wynik = 0.3048 * stopy
     return wynik
 
 def max(liczba1: float, liczba2: float) -> float:
+    """
+    :param liczba1:
+    :param liczba2:
+    :return: Max z liczb
+    """
     if liczba1 > liczba2:
         return liczba1
     else:
         return liczba2
 
 def srednia(liczba1: float, liczba2: float) -> float:
+    """
+    :param liczba1:
+    :param liczba2:
+    :return: Średnia z liczb
+    """
     srednia = (liczba1 + liczba2) / 2
     return srednia
 
 def pole_kola(promien: float) -> float:
+    """
+    :param promien:
+    :return: Pole koła
+    """
     pole = math.pi * (promien ** 2)
     return pole
 
 def bmi(wzrost: float, waga: float) -> float:
+    """
+    :param wzrost: w m
+    :param waga: w m
+    :return: BMI
+    """
     wynik = waga * (wzrost ** 2)
     return wynik
 
 def pole_trojkata(a: float, b: float, c: float) -> float:
+    """
+    :param a: dlugosc boku a
+    :param b: dlugosc boku b
+    :param c: dlugosc boku c
+    :return: Pole trójkąta z wzoru Herona
+    """
     obwod = (a + b + c) / 2
     pole = (obwod * (obwod - a) * (obwod - b) * (obwod - c)) ** (0.5)
     return pole
 
 def kilometry_na_mile(kilometry: float) -> float:
+    """
+    :param kilometry:
+    :return: kilometry na mile
+    """
     wynik = kilometry / 0.621371192
     return wynik
 
 def mile_na_kilometry(mile: float) -> float:
+    """
+    :param mile:
+    :return: mile na kilometry
+    """
     wynik = mile * 0.621371192
     return wynik
 
 # Testy
 def test_basic():
-    assert max(1, 2) == 2
+    assert stopy_na_metry(1) == 0.3048 * 1
 
 def test_basic1():
+    assert max(2, 1) == 2
+
+def test_basic2():
     assert srednia(1, 1) == 1
 
-print("Stopy na metry:")
-stopy = float(input(f"Podaj liczbę stóp:"))
-print(f"W metrach to: {stopy_na_metry(stopy)}.")
-print("Liczba większa:")
-liczba1 = float(input(f"Podaj liczbę nr 1:"))
-liczba2 = float(input(f"Podaj liczbę nr 2:"))
-print(f"Wieksza liczba to: {max(liczba1, liczba2)}.")
-print("Srednia dwóch liczb:")
-liczba1 = float(input(f"Podaj liczbę nr 1:"))
-liczba2 = float(input(f"Podaj liczbę nr 2:"))
-print(f"Srednia liczb to: {srednia(liczba1, liczba2)}.")
-print("Pole kola:")
-promien = float(input(f"Podaj promien:"))
-print(f"Pole kola to: {pole_kola(promien)}.")
-print("BMI:")
-waga = float(input(f"Podaj wage:"))
-wzrost = float(input(f"Podaj wzrost:"))
-print(f"BMI to: {bmi(wzrost, waga)}.")
-print("Pole trojkata:")
-a = float(input(f"Podaj bok a:"))
-b = float(input(f"Podaj bok b:"))
-c = float(input(f"Podaj bok c:"))
-print(f"Pole trojkata to: {pole_trojkata(a, b, c)}.")
-print("km na mile:")
-km = float(input(f"Podaj liczbe km:"))
-print(f"Pole trojkata to: {kilometry_na_mile(km)}.")
+def test_basic3():
+    assert pole_kola(1) == math.pi*(1**2)
+
+def test_basic4():
+    assert bmi(1.8, 100) == 100 * (1.8 ** 2)
+
+def test_basic5():
+    assert pole_trojkata(4,5,7) == 4*((6)**(1/2))
+
+def test_basic6():
+    assert kilometry_na_mile(1) == 1 / 0.621371192
+
+def test_basic7():
+    assert mile_na_kilometry(1) == 0.621371192
